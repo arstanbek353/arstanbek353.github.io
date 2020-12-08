@@ -1,0 +1,190 @@
+.request {}
+.form-sect {
+    margin-bottom: 18.2rem;
+    position: relative;
+    .bg {
+        &-sm {
+            left: -60.3rem;
+            top: -42.6rem;
+        }
+        &-lg {
+            right: -49.5rem;
+            top: -19.5rem;
+        }
+    }
+    @media (max-width: 48em) {
+        margin-bottom: 26.7rem;
+        .bg-mob {
+            top: auto;
+            bottom: 15rem;
+        }
+    }
+}
+.form {
+    width: 106.7rem;
+    margin: 0 auto;
+    &--886 {
+        width: 88.6rem;
+    }
+    &--1087 {
+        width: 108.7rem;
+    }
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__main-title {
+        width: 100%;
+        text-align: center;
+        &--tal {
+            text-align: left;
+            padding-left: 1.3rem;
+        }
+    }
+    &__item {
+        width: 100%;
+        display: inline-block;
+        align-items: center;
+        position: relative;
+        padding: 1.6rem 1.5rem;
+        &--50 {
+            width: 50%;
+        }
+        &-inner {
+            box-shadow: 2rem 3rem 6rem rgba(15, 7, 62, 0.05);
+            border-radius: 1rem;
+            position: relative;
+        }
+    }
+    &__bottom {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 3.5rem;
+    }
+    &__input, &__textarea {
+        background-color: #FFFFFF;
+        height: 8.5rem;
+        width: 100%;
+        padding: 3.2rem 2.5rem;
+        font-size: 1.8rem;
+        color: $pl-grey;
+        border: none;
+        border-radius: 1rem;
+        &::placeholder {
+            font-size: 1.8rem;
+            color: $pl-grey;
+        }
+    }
+    &__input {
+        &--icon {
+            padding-left: 9.3rem;
+            background-repeat: no-repeat;
+            background-size: 2.6rem;
+            background-position: left 3.6rem center;
+        }
+        &--search {
+            background-image: url(../img/magni.svg);
+        }
+        &--org {
+            background-image: url(../img/input-burger.svg);
+        }
+        &--name {
+            background-image: url(../img/person.svg);
+        }
+        &--tel {
+            background-image: url(../img/input-tel.svg);
+        }
+        &--mail {
+            background-image: url(../img/input-mail.svg);
+        }
+        &--link {
+            background-image: url(../img/input-link.svg);
+        }
+    }
+    &__btn-sq {
+        display: inline-block;
+        width: 4.9rem;
+        height: 6.1rem;
+        background-image: url(../img/btn-sq.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        border: none;
+        position: absolute;
+        right: 1rem;
+        top: 1.4rem;
+        z-index: 50;
+    }
+    @media (max-width: 48em) {
+        width: 100%;
+        &__inner {
+        }
+        &__main-title {
+            padding-left: 0;
+        }
+        &__item {
+            padding: 2.3rem 0rem;
+            &--50 {
+                width: 100%;
+            }
+            &-inner {
+                box-shadow: 4rem 6rem 12rem rgba(15, 7, 62, 0.05);
+                border-radius: 2rem;
+            }
+        }
+        &__input, &__textarea {
+            height: 13.8rem;
+            width: 100%;
+            padding: 4.8rem 4rem;
+            font-size: 3.2rem;
+            border-radius: 2rem;
+            &::placeholder {
+                font-size: 3.2rem;
+            }
+        }
+        &__input {
+            &--icon {
+                padding-left: 12.6rem;
+                background-size: 4.2rem;
+                background-position: left 4rem center;
+            }
+        }
+    }
+}
+
+.select-css {
+    height: 8.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    color: $pl-grey;
+    font-weight: 500;
+    padding: 3.2rem 3rem 3.2rem 3.5rem;
+    border-radius: 1rem;
+
+    display: block;
+    max-width: none;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+    background-image: url(../img/select-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 3.3rem;
+    background-position: right 2.9rem center;
+    @media (max-width: 48em) {
+        height: 13.8rem;
+        font-size: 3.2rem;
+        background-position: right 4rem center;
+    }
+    
+}
+
+.t-a-l {
+    text-align-last: left;
+}
+

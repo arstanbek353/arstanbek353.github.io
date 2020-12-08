@@ -1,0 +1,115 @@
+.footer {
+    background-color: #EEF0FA;
+    padding-top: 8.7rem;
+    padding-bottom: 7.6rem;
+    position: relative;
+    z-index: 3;
+    &__inner {
+        display: flex;
+
+    }  
+    &__logo {
+        margin-right: 21.4rem;
+        flex-shrink: 0;
+    }
+    &__cr {
+        margin-top: 2rem;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+    &__item {
+        margin-bottom: 2.7rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: $black;
+        margin-bottom: 1.6rem;
+    }
+    &__list {
+        a {
+            display: block;
+            margin-bottom: 0.6rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media (max-width: 48em) {
+        background-color: #EEF0FA;
+        padding-top: 12.4rem;
+        padding-bottom: 12.4rem;
+        &__inner {
+            display: block;
+    
+        }  
+        &__logo {
+            margin-right: 0rem;
+            margin-bottom: 10rem;
+            .logo {
+                width: 31.4rem;
+            }
+        }
+        &__cr {
+            margin-top: 2rem;
+        }
+        &__row {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 11rem;
+        }
+        &__col {
+            width: 45%;
+            margin-bottom: 8.7rem;
+            &--100 {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 100%;
+                .footer__item {
+                    width: 45%;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__item {
+            margin-bottom: 8.7rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__title {
+            font-size: 3.2rem;
+            margin-bottom: 3.4rem;
+        }
+        &__list {
+            a {
+                display: block;
+                margin-bottom: 3.4rem;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+    }
+}
+.mn {
+    @media (max-width: 48em) {
+        display: none;
+    }
+}
+.dn {
+    display: none;
+    @media (max-width: 48em) {
+        display: block;
+    }
+}
