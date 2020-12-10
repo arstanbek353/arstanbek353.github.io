@@ -200,22 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // nav
-    let header = document.querySelector('.header')
-    let nav = document.querySelector('.nav')
-    let navInner = document.querySelector('.nav__inner')
-    let burger = document.querySelector('.burger')
-    burger.addEventListener('click', function () {
-        nav.classList.toggle('active')
-        header.classList.toggle('active')
-        
-        searchHeader.classList.remove('open')
-        searchIcon.classList.remove('open')
-        searchIcon.classList.remove('close')
-        searchIcon.classList.remove('x')
-        toggleScroll('body', false)
-    })
-
     // filter
     function filter() {
         let filter = document.querySelector('.filter')
@@ -236,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         filterTitle.forEach(element => {
             element.addEventListener('click', function () {
-                this.classList.toggle('active')        
+                this.classList.toggle('active')
                 $(this.nextElementSibling).slideToggle();
             })
         });
@@ -252,11 +236,28 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         });
     }
+    // nav
+    let header = document.querySelector('.header')
+    let nav = document.querySelector('.nav')
+    let navInner = document.querySelector('.nav__inner')
+    let burger = document.querySelector('.burger')
+    burger.addEventListener('click', function () {
+        nav.classList.toggle('active')
+        header.classList.toggle('active')
+
+        searchHeader.classList.remove('open')
+        searchIcon.classList.remove('open')
+        searchIcon.classList.remove('close')
+        searchIcon.classList.remove('x')
+        toggleScroll('body', false)
+    })
+
     if (document.querySelector('.filter')) {
         filter()
     }
 
     // выпадающий список в меню
+    let htmlDoc = document.querySelector('html');
     let navLi = document.querySelectorAll('.nav__item');
     let drops = document.querySelectorAll('.nav-drop');
     let contentDrops = document.querySelectorAll('.nav-drop__content');
@@ -274,12 +275,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     next.classList.add('remove')
                     prev.classList.add('active')
                     $(drop).slideDown();
+                    navLi.forEach(item => {
+                        if (this.closest('.nav__item') === item) {
+                            $(element).slideDown();
+                        } else {
+                            $(item).slideUp();
+                        }
+                    })
                 });
                 prev.addEventListener('click', function () {
                     //drop.classList.add('active')
                     next.classList.remove('remove')
                     prev.classList.remove('active')
                     $(drop).slideUp();
+                    navLi.forEach(item => {
+                        $(item).slideDown();
+                    })
                 });
             }
         });
@@ -291,11 +302,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 $(drop).slideToggle();
             });
         });
+
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function () {
+            let currentScrollTop = htmlDoc.scrollTop
+            if (currentScrollTop == 0) {
+                header.classList.remove('fixed')
+                header.classList.remove('animate')
+            } else if (currentScrollTop < lastScrollTop) {
+                header.classList.add('fixed')
+                header.classList.remove('animate')
+            } else {
+                header.classList.add('animate')
+                header.classList.remove('fixed')
+            }
+            lastScrollTop = htmlDoc.scrollTop
+        })
     } else {
         navLi.forEach(element => {
             if (element.querySelector('.nav-drop')) {
                 let drop = element.querySelector('.nav-drop');
-                element.addEventListener('mouseenter', function () {
+                let navLink = element.querySelector('.nav__title');
+                navLink.addEventListener('mouseenter', function () {
                     $(drop).slideDown();
                 });
                 element.addEventListener('mouseleave', function () {
@@ -303,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
-        
+
         navProHeadTitle.forEach((element, index) => {
             let drop = element.querySelector('.nav-drop');
             element.addEventListener('mouseenter', function () {
@@ -365,7 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // навигация на странице региональных департаментов
-    function navScroll (sect, nav, blocks, heights = '.header') {
+    function navScroll(sect, nav, blocks, heights = '.header') {
         let section = document.querySelector(sect);
         let anchorNav = document.querySelector(nav);
         let anchorLinks = anchorNav.querySelectorAll('a');
@@ -378,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // });
 
         anchorLinks.forEach(element => {
-            element.addEventListener('click', function(e) {
+            element.addEventListener('click', function (e) {
                 e.preventDefault()
                 let href = this.getAttribute('href')
                 let block = document.getElementById(href)
@@ -391,10 +419,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         window.addEventListener('scroll', function () {
-            
+
             function getCoords(elem) {
                 let box = elem.getBoundingClientRect();
-            
+
                 return {
                     top: box.top + pageYOffset,
                     left: box.left + pageXOffset,
@@ -413,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         element.classList.remove('active');
                     })
                     hrefAnchor.classList.add('active')
-                } else{
+                } else {
                     element.classList.remove('onView')
                 }
             })
@@ -427,16 +455,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
-    
-	if (document.querySelector('.card-content')) {
-        navScroll('.card-content', '.card-content__nav-wrapper', '.card-content__block',  '.header')
+
+    if (document.querySelector('.card-content')) {
+        navScroll('.card-content', '.card-content__nav-wrapper', '.card-content__block', '.header')
     }
     // прокрутка до элемента
     function toScroll(link) {
         let links = document.querySelectorAll(link)
-        
+
         links.forEach(element => {
-            element.addEventListener('click', function(e) {
+            element.addEventListener('click', function (e) {
                 e.preventDefault()
                 let href = this.getAttribute('href')
                 let block = document.getElementById(href)
@@ -450,36 +478,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // скрыть/показать список
-	function toggleList(items, button, numArr) {
+    function toggleList(items, button, numArr) {
         let num;
-		let childs = document.querySelectorAll(items)
-		let btn = document.querySelector(button)
-        if (mediaQuery) {num = numArr[1]} else {num = numArr[0]}
-		
-		if (childs.length > num) {
-			loopItems(childs, num)
-			
-			btn.addEventListener('click', function(e) {
-				e.preventDefault()
-				this.style.display = 'none'
-				loopItems(childs, num)
-			})
-		} else {
-			btn.style.display = 'none'
-		}
-		function loopItems(elements, num) {
-			for (let i = num; i < elements.length; i++) {
-				elements[i].classList.toggle('hide')
-			}
-		}
-	}
+        let childs = document.querySelectorAll(items)
+        let btn = document.querySelector(button)
+        if (mediaQuery) { num = numArr[1] } else { num = numArr[0] }
 
-	if (document.querySelector('.card-characteristic__item')) {
-		toggleList(
-            '.card-content .card-characteristic__item', 
-            '.card-content .card-characteristic__bottom .show-all', 
+        if (childs.length > num) {
+            loopItems(childs, num)
+
+            btn.addEventListener('click', function (e) {
+                e.preventDefault()
+                this.style.display = 'none'
+                loopItems(childs, num)
+            })
+        } else {
+            btn.style.display = 'none'
+        }
+        function loopItems(elements, num) {
+            for (let i = num; i < elements.length; i++) {
+                elements[i].classList.toggle('hide')
+            }
+        }
+    }
+
+    if (document.querySelector('.card-characteristic__item')) {
+        toggleList(
+            '.card-content .card-characteristic__item',
+            '.card-content .card-characteristic__bottom .show-all',
             [20, 2]
         )
+    }
+    console.log(document.querySelector('.faq-slider__text').textContent.length)
+    // обрезать текст по длине
+    let catalogTexts = document.querySelectorAll('.catalog__text')
+
+    catalogTexts.forEach(element => {
+        element.textContent = kitcut(element.textContent, 105)
+    })
+    let newsTexts = document.querySelectorAll('.news__text')
+
+    newsTexts.forEach(element => {
+        element.textContent = kitcut(element.textContent, 169)
+    })
+
+    let solutionsTexts = document.querySelectorAll('.solutions__text')
+
+    solutionsTexts.forEach(element => {
+        element.textContent = kitcut(element.textContent, 210)
+    })
+
+    let faqSliderTexts = document.querySelectorAll('.faq-slider__text')
+
+    faqSliderTexts.forEach(element => {
+        element.textContent = kitcut(element.textContent, 242)
+    })
+    function kitcut(text, limit) {
+        text = text.trim();
+        if (text.length <= limit) return text;
+
+        text = text.slice(0, limit);
+
+        return text.trim() + "...";
     }
 })
 
