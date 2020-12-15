@@ -11,6 +11,8 @@
     &__logo {
         margin-right: 21.4rem;
         flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
     }
     &__cr {
         margin-top: 2rem;
@@ -100,6 +102,31 @@
             }
         }
 
+    }
+}
+
+.made {
+    margin-top: auto;
+    margin-bottom: 0;
+    &__text {
+        font-size: 1.8rem;
+        color: #868694;
+        margin-bottom: 1.3rem;
+    }
+    &__logo {
+        width: 14.7rem;
+        display: block;
+    }
+    @media (max-width: 48em) {
+        margin-top: 5rem;
+        margin-bottom: 0;
+        &__text {
+            font-size: 3rem;
+            margin-bottom: 1.3rem * 2;
+        }
+        &__logo {
+            width: 14.7rem * 2;
+        }
     }
 }
 .mn {

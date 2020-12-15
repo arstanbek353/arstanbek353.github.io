@@ -766,8 +766,10 @@ body {
     display: flex; }
   .nav__drop {
     display: none; }
-  .nav__item:last-child {
-    margin-right: 0; }
+  .nav__item {
+    position: relative; }
+    .nav__item:last-child {
+      margin-right: 0; }
   .nav__title {
     display: flex;
     align-items: center;
@@ -1003,6 +1005,45 @@ body {
         .nav-pro__grid a {
           font-size: 3.2rem;
           padding: 2.4rem 0; } }
+
+.nav-drop-mini.nav-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-image: url(../img/pro-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4.5rem 5rem;
+  min-width: 33.6rem; }
+
+.nav-drop-mini__item {
+  display: block;
+  margin-bottom: 2.6rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #363636; }
+  .nav-drop-mini__item:last-child {
+    margin-bottom: 0; }
+  .nav-drop-mini__item:hover {
+    color: #FF5E37; }
+
+@media (max-width: 48em) {
+  .nav-drop-mini.nav-drop {
+    position: static;
+    top: 0%;
+    left: 0%;
+    transform: translateX(0%);
+    text-align: left;
+    background-image: none;
+    padding: 4rem 0rem;
+    min-width: auto;
+    border-top: 1px solid #d2d5de; }
+  .nav-drop-mini__item {
+    display: block;
+    margin-bottom: 2.6rem;
+    font-size: 3.6rem; } }
 
 .main-slider {
   padding-top: 15rem;
@@ -5190,7 +5231,9 @@ body {
     display: flex; }
   .footer__logo {
     margin-right: 21.4rem;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column; }
   .footer__cr {
     margin-top: 2rem; }
   .footer__row {
@@ -5253,6 +5296,26 @@ body {
         margin-bottom: 3.4rem; }
         .footer__list a:last-child {
           margin-bottom: 0; } }
+
+.made {
+  margin-top: auto;
+  margin-bottom: 0; }
+  .made__text {
+    font-size: 1.8rem;
+    color: #868694;
+    margin-bottom: 1.3rem; }
+  .made__logo {
+    width: 14.7rem;
+    display: block; }
+  @media (max-width: 48em) {
+    .made {
+      margin-top: 5rem;
+      margin-bottom: 0; }
+      .made__text {
+        font-size: 3rem;
+        margin-bottom: 2.6rem; }
+      .made__logo {
+        width: 29.4rem; } }
 
 @media (max-width: 48em) {
   .mn {
