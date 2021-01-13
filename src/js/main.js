@@ -442,7 +442,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let anchorNavCoord = getCoords(anchorNav);
             if (anchorNavCoord.y < heightSum && -anchorNavCoord.y < section.offsetHeight - heightSum) {
                 anchorNav.classList.add('active')
-                console.log(anchorNavCoord.y)
                 anchorNav.querySelector('.card-content__nav').style.top = heightSum + 'px'
             } else {
                 anchorNav.classList.remove('active')
@@ -503,11 +502,15 @@ document.addEventListener("DOMContentLoaded", function () {
             [20, 2]
         )
     }
-    console.log(document.querySelector('.faq-slider__text').textContent.length)
     // обрезать текст по длине
     let catalogTexts = document.querySelectorAll('.catalog__text')
 
     catalogTexts.forEach(element => {
+        element.textContent = kitcut(element.textContent, 105)
+    })
+    let category2Texts = document.querySelectorAll('.category2__text')
+
+    category2Texts.forEach(element => {
         element.textContent = kitcut(element.textContent, 105)
     })
     let newsTexts = document.querySelectorAll('.news__text')
