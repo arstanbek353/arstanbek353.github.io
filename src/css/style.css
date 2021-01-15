@@ -4807,7 +4807,7 @@ body {
       .category-pro2__inner {
         padding: 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 7.5rem 4rem; }
       .category-pro2__item {
         padding: 18.3rem 4.8rem 7.8rem;
@@ -5501,18 +5501,20 @@ body {
         background-size: contain;
         background-position: center;
         margin-right: 3rem; }
-  .gr-check-list--list ul {
-    padding-top: 2.3rem;
-    display: block;
-    grid-gap: 0; }
-    .gr-check-list--list ul li {
-      margin-bottom: 4rem; }
-      .gr-check-list--list ul li:last-child {
-        margin-bottom: 0; }
-      .gr-check-list--list ul li::before {
-        width: 6.5rem;
-        height: 6.5rem;
-        margin-right: 3rem; }
+  .gr-check-list--list {
+    border-bottom: none; }
+    .gr-check-list--list ul {
+      padding-top: 2.3rem;
+      display: block;
+      grid-gap: 0; }
+      .gr-check-list--list ul li {
+        margin-bottom: 4rem; }
+        .gr-check-list--list ul li:last-child {
+          margin-bottom: 0; }
+        .gr-check-list--list ul li::before {
+          width: 6.5rem;
+          height: 6.5rem;
+          margin-right: 3rem; }
   @media (max-width: 48em) {
     .gr-check-list {
       padding-top: 1rem;

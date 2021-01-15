@@ -4843,7 +4843,7 @@
         &__inner {
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             grid-gap: 7.5rem 4rem;
         }
         &__item {
@@ -5752,6 +5752,7 @@
         }
     }
     &--list {
+        border-bottom: none;
         ul {
             padding-top: 2.3rem;
             display: block;
