@@ -3774,6 +3774,17 @@
     &__show-more {
         display: none;
     }
+    &--news {
+        .news__item {
+            padding-top: 3rem;
+        }
+        .news__date {
+            display: grid;
+        }
+        .news__title {
+            margin-bottom: 2.3rem;
+        }
+    }
     @media (max-width: 48em) {
         margin-bottom: 28rem;
         padding-top: 9.2rem;
@@ -3830,6 +3841,17 @@
             justify-content: center;
             .more::before {
                 transform: rotate(90deg);
+            }
+        }
+        &--news {
+            .news__item {
+                padding-top: 5rem;
+            }
+            .news__date {
+                display: grid;
+            }
+            .news__title {
+                margin-bottom: 5.7rem;
             }
         }
     }
